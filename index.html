@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BIYALA </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styleHome.css">
+    
+</head>
+<body>
+    <!-- إشعار الأوفلاين -->
+    <div class="offline-notice" id="offline-notice">
+        <i class="fas fa-wifi-slash"></i> أنت غير متصل بالإنترنت
+    </div>
+    
+   
+    
+    <!-- شريط البحث مع أيقونة الحساب -->
+     <div class="cart-icon-wrapper">
+            <div class="cart-icon" id="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+               
+            </div>
+        </div>
+    <div class="search-wrapper">
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="ابحث عن منتج أو ماركة..." id="search-input">
+        </div>
+        <div class="account-icon" id="account-icon">
+            <i class="fas fa-user"></i>
+        </div>
+    </div>
+    
+    <!-- التنقل السفلي -->
+    <div class="bottom-nav">
+        <div class="nav-item active" data-page="home">
+            <i class="fas fa-home"></i>
+            
+            <div class="nav-glow"></div>
+        </div>
+        <div class="nav-item" data-page="trending">
+            <i class="fas fa-fire"></i>
+            
+            <div class="nav-glow"></div>
+        </div>
+        <div class="nav-item" data-page="chat">
+            <i class="fas fa-comment-dots"></i>
+            
+            <div class="nav-glow"></div>
+        </div>
+        <div class="nav-item" data-page="notifications">
+            <i class="fas fa-bell"></i>
+            
+            <div class="nav-glow"></div>
+        </div>
+        <div class="nav-item" data-page="settings">
+            <i class="fas fa-cog"></i>
+            
+            <div class="nav-glow"></div>
+        </div>
+    </div>
+    
+    <!-- ==== الصفحات ==== -->
+    
+    <!-- الصفحة الرئيسية -->
+    <div class="page active" id="home-page">
+        <div class="masonry-grid" id="product-grid"></div>
+    </div>
+    
+    <!-- صفحة الترندينج -->
+    <div class="page" id="trending-page">
+        <div class="trending-header">
+            <h1 class="trending-title">الأكثر رواجاً 🔥</h1>
+            <div class="quick-categories">
+                <div class="category-chip active">قسم المحجبات</div>
+                <div class="category-chip">أجذبه</div>
+                <div class="category-chip">بناطيل</div>
+                <div class="category-chip">هوديز</div>
+                <div class="category-chip">اكسسوارات</div>
+                <div class="category-chip">فساتين</div>
+                <div class="category-chip">أحذية</div>
+            </div>
+        </div>
+        <div class="masonry-grid" id="trending-grid"></div>
+    </div>
+    
+    <!-- صفحة الدردشة -->
+    <div class="page" id="chat-page">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h2 class="chat-name">Biyala</h2>
+                <p class="chat-status">مساعدتك الشخصية في عالم جديد</p>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <!-- الرسائل تضاف هنا -->
+            </div>
+            
+            <div class="chat-input-container">
+                <div class="chat-input">
+                    <input type="text" placeholder="اكتب رسالتك هنا..." id="chat-input">
+                </div>
+                <button class="send-button" id="send-message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صفحة الإشعارات -->
+    <div class="page" id="notifications-page">
+        <div class="notifications-container">
+            <div class="notification-date">اليوم</div>
+            
+            <div class="notification-item unread">
+                <div class="notification-title">طلبك قيد التجهيز 📦</div>
+                <div class="notification-desc">طلبك من علامة CLAZZY (#ORD-7823) قيد التجهيز الآن</div>
+                <div class="notification-time">قبل 3 ساعات</div>
+            </div>
+            
+            <div class="notification-item">
+                <div class="notification-title">كوليكشن جديد 🎉</div>
+                <div class="notification-desc">أطلقت علامة GO K كوليكشن شتوي 2024</div>
+                <div class="notification-time">أمس</div>
+            </div>
+            
+            <div class="notification-date">الأسبوع الماضي</div>
+            
+            <div class="notification-item">
+                <div class="notification-title">خصم خاص 🏷️</div>
+                <div class="notification-desc">خصم 30% على منتجات علامة mmm brand لمدة 3 أيام فقط</div>
+                <div class="notification-time">15 سبتمبر</div>
+            </div>
+            
+            <div class="notification-item">
+                <div class="notification-title">تم شحن طلبك 🚚</div>
+                <div class="notification-desc">طلبك (#ORD-7815) تم شحنه وتتبع الشحن متاح الآن</div>
+                <div class="notification-time">12 سبتمبر</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صفحة الإعدادات -->
+    <div class="page" id="settings-page">
+        <div class="settings-container">
+            <div class="settings-section">
+                <h3 class="settings-title">معلومات الحساب</h3>
+                
+                <div class="settings-item">
+                    <span class="settings-label">الاسم الكامل</span>
+                    <span class="settings-value">أحمد محمد علي</span>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">رقم الهاتف</span>
+                    <span class="settings-value phone">+20 123 456 7890</span>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">البريد الإلكتروني</span>
+                    <span class="settings-value">ahmed@example.com</span>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">الموقع</span>
+                    <span class="settings-value">القاهرة، مصر</span>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">تاريخ الميلاد</span>
+                    <span class="settings-value">15/03/1995</span>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">الجنس</span>
+                    <span class="settings-value">ذكر</span>
+                </div>
+                
+                <div style="text-align: center; margin-top: 25px;">
+                    <button class="edit-btn" id="edit-profile">
+                        <i class="fas fa-edit"></i> تعديل البيانات
+                    </button>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3 class="settings-title">إشعارات النظام</h3>
+                
+                <div class="settings-item">
+                    <span class="settings-label">تذكيري عند نزول كوليكشن جديد</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">عرض المنتجات الأكثر مبيعاً</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">عدم الإزعاج</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">إشعارات الطلبات</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3 class="settings-title">عام</h3>
+                
+                <div class="settings-item">
+                    <span class="settings-label">اللغة</span>
+                    <span class="settings-value">العربية</span>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">الوضع الداكن</span>
+                    <span class="settings-value">مفعل</span>
+                </div>
+                
+                <div class="settings-item" id="complaints-link">
+                    <span class="settings-label">الشكاوى والمتابعة</span>
+                    <span class="settings-value"><i class="fas fa-arrow-left"></i></span>
+                </div>
+                
+                <div class="settings-item">
+                    <span class="settings-label">تسجيل الخروج</span>
+                    <span class="settings-value" style="color: var(--danger-red);">خروج</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صفحة الشكاوى (مخبئة حالياً) -->
+    <div class="page" id="complaints-page">
+        <div class="complaints-container">
+            <h1 style="font-size: 28px; margin-bottom: 25px; font-weight: 800;">الشكاوى والمتابعة</h1>
+            
+            <div class="complaint-item">
+                <div class="complaint-header">
+                    <div class="complaint-title">تأخر في الشحن</div>
+                    <div class="complaint-status status-open">قيد المعالجة</div>
+                </div>
+                <div class="complaint-desc">
+                    الطلب رقم #ORD-7815 تأخر في التسليم أكثر من 5 أيام عن الموعد المحدد.
+                </div>
+                <div class="complaint-date">تم الإرسال: 10 سبتمبر 2024</div>
+            </div>
+            
+            <div class="complaint-item">
+                <div class="complaint-header">
+                    <div class="complaint-title">منتج غير مطابق</div>
+                    <div class="complaint-status status-closed">مُحَلَّة</div>
+                </div>
+                <div class="complaint-desc">
+                    المنتج المستلم يختلف عن الصورة المعروضة على المنصة.
+                </div>
+                <div class="complaint-date">تم الإرسال: 5 سبتمبر 2024</div>
+            </div>
+            
+            <div class="no-complaints" style="display: none;">
+                <i class="fas fa-inbox"></i>
+                <h3>لا توجد شكاوى</h3>
+                <p>لم تقم بإرسال أي شكاوى بعد</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- بطاقة المنتج المقلوبة -->
+    <div class="card-overlay" id="product-card-overlay">
+        <button class="close-card" id="close-card">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="flip-card" id="flip-card">
+            <div class="flip-card-inner">
+                <!-- الوجه الأمامي -->
+                <div class="card-front">
+                    <div class="product-image-large">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    
+                    <div class="front-content">
+                        <div class="front-header">
+                            <div class="brand-info">
+                                <div class="brand-logo-large">C</div>
+                                <div>
+                                    <div class="brand-name-large">CLAZZY</div>
+                                    <a class="brand-link" id="view-brand-profile" href="brand-profile.html?brand=CLAZZY">
+                                        <i class="fas fa-external-link-alt"></i> زيارة صفحة البراند
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="likes-large">
+                                <i class="fas fa-heart"></i>
+                                <span>1,245</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-price-section">
+                            <div class="product-price">
+                                <span class="original-price">$715</span>
+                                $500
+                            </div>
+                            <div class="discount-badge">%30 خصم</div>
+                        </div>
+                        <button class="add-to-cart-front-btn" id="front-cart-btn">
+        <i class="fas fa-cart-plus"></i>
+        <span>أضف إلى السلة</span>
+    </button>
+
+                        <button class="flip-button" id="flip-to-back">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- الوجه الخلفي -->
+                <div class="card-back">
+                    <h3>تفاصيل المنتج</h3>
+                    <p>هذا المنتج من علامة CLAZZY يتميز بتصميم عصري وأنيق يناسب جميع الأوقات. مصنوع من أجود الخامات التي تضمن الراحة والجودة العالية.</p>
+                    
+                    <div class="product-details">
+                        <div class="detail-item">
+                            <span>المقاسات المتاحة</span>
+                            <span>S, M, L, XL</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>الألوان</span>
+                            <span>أسود، أزرق، رمادي</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>نوع القماش</span>
+                            <span>قطن 100%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>وقت التوصيل</span>
+                            <span>3-5 أيام</span>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="action-btn" title="إضافة إلى المفضلة">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <button class="action-btn brand" title="زيارة صفحة البراند" id="brand-profile-btn">
+                            <i class="fas fa-store"></i>
+                        </button>
+                        <button class="action-btn" title="مشاركة">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                        
+                   
+                        
+                    <button class="flip-button" id="flip-to-front" style="position: relative; bottom: 0; left: 0; ">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+                         <button class="buy-button-front" id="buy-button">
+                            <i class="fas fa-shopping-cart"></i> شراء المنتج
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صفحة الشراء (ستضاف لاحقاً) -->
+    <div class="page" id="purchase-page" style="display: none;">
+        <!-- سيتم بناؤها لاحقاً -->
+    </div>
+    
+    <!-- صفحة البراند (ستضاف لاحقاً) -->
+    <div class="page" id="brand-page" style="display: none;">
+        <!-- سيتم بناؤها لاحقاً -->
+    </div>
+<!-- صفحة تعديل البيانات -->
+<div class="page" id="edit-profile-page">
+    <div class="edit-profile-container">
+        <div class="edit-header">
+            <button class="back-btn" id="back-to-settings">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <h1>تعديل البيانات الشخصية</h1>
+        </div>
+        
+        <div class="edit-form">
+            <!-- صورة الملف الشخصي -->
+            <div class="profile-pic-section">
+                <div class="profile-pic-wrapper">
+                    <div class="profile-pic" id="profile-pic">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <label for="profile-pic-input" class="change-pic-btn">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                    <input type="file" id="profile-pic-input" accept="image/*" style="display: none;">
+                </div>
+            </div>
+            
+            <!-- حقول النموذج -->
+            <div class="form-group">
+                <label for="full-name">
+                    <i class="fas fa-user"></i> الاسم الكامل
+                </label>
+                <input type="text" id="full-name" value="أحمد محمد علي" placeholder="أدخل الاسم الكامل">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">
+                    <i class="fas fa-phone"></i> رقم الهاتف
+                </label>
+                <input type="tel" id="phone" value="+20 123 456 7890" placeholder="+20 XXX XXX XXXX">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">
+                    <i class="fas fa-envelope"></i> البريد الإلكتروني
+                </label>
+                <input type="email" id="email" value="ahmed@example.com" placeholder="example@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="location">
+                    <i class="fas fa-map-marker-alt"></i> الموقع
+                </label>
+                <input type="text" id="location" value="القاهرة، مصر" placeholder="المدينة، الدولة">
+            </div>
+            
+            <div class="form-group">
+                <label for="birthdate">
+                    <i class="fas fa-birthday-cake"></i> تاريخ الميلاد
+                </label>
+                <input type="text" id="birthdate" value="15/03/1995" placeholder="DD/MM/YYYY">
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-venus-mars"></i> الجنس
+                </label>
+                <div class="gender-options">
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="male" checked>
+                        <span class="gender-label">ذكر</span>
+                    </label>
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="female">
+                        <span class="gender-label">أنثى</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- كلمة المرور -->
+            <div class="password-section">
+                <h3><i class="fas fa-lock"></i> تغيير كلمة المرور</h3>
+                
+                <div class="form-group">
+                    <label for="current-password">كلمة المرور الحالية</label>
+                    <div class="password-input">
+                        <input type="password" id="current-password" placeholder="أدخل كلمة المرور الحالية">
+                        <button class="show-password" type="button">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="new-password">كلمة المرور الجديدة</label>
+                    <div class="password-input">
+                        <input type="password" id="new-password" placeholder="أدخل كلمة المرور الجديدة">
+                        <button class="show-password" type="button">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">تأكيد كلمة المرور</label>
+                    <div class="password-input">
+                        <input type="password" id="confirm-password" placeholder="أعد إدخال كلمة المرور الجديدة">
+                        <button class="show-password" type="button">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- أزرار الحفظ والإلغاء -->
+            <div class="form-buttons">
+                <button class="save-btn" id="save-changes">
+                    <i class="fas fa-save"></i> حفظ التغييرات
+                </button>
+                <button class="cancel-btn" id="cancel-edit">
+                    <i class="fas fa-times"></i> إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+     <script src="../js/script.js"></script>
+
+
+</body>
+</html>

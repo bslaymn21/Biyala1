@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الشراء - بيالة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="../css/purchase.css">
+   
+</head>
+<body>
+    <div class="purchase-container">
+        <!-- الهيدر -->
+        <div class="purchase-header">
+            <button class="back-button" id="close-purchase">
+                <i class="fas fa-times"></i>
+            </button>
+           
+            <div style="width: 40px;"></div> <!-- مساحة للتوازن -->
+        </div>
+        
+        <!-- شريط التقدم -->
+        <div class="progress-steps">
+            <div class="step active" data-step="1">
+                <div class="step-circle">1</div>
+                <div class="step-text">المنتجات</div>
+            </div>
+            <div class="step" data-step="2">
+                <div class="step-circle">2</div>
+                <div class="step-text">الدفع</div>
+            </div>
+            <div class="step" data-step="3">
+                <div class="step-circle">3</div>
+                <div class="step-text">الموقع</div>
+            </div>
+            <div class="step" data-step="4">
+                <div class="step-circle">4</div>
+                <div class="step-text">الفاتورة</div>
+            </div>
+            <div class="step" data-step="5">
+                <div class="step-circle">5</div>
+                <div class="step-text">التوقيع</div>
+            </div>
+        </div>
+        
+        <!-- المرحلة 1: اختيار المنتجات -->
+        <div class="step-content active" id="step1">
+            <h2 class="section-title"><i class="fas fa-shopping-cart"></i> المنتجات المختارة</h2>
+            
+            <div class="product-selection" id="product-list">
+                <!-- المنتجات تضاف هنا بالجافاسكريبت -->
+            </div>
+            
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>سعر المنتجات</span>
+                    <span id="subtotal-price">$0</span>
+                </div>
+                <div class="summary-row">
+                    <span>تكلفة الشحن</span>
+                    <span id="shipping-price">$50</span>
+                </div>
+                <div class="summary-row">
+                    <span>الإجمالي</span>
+                    <span id="total-price">$50</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- المرحلة 2: طريقة الدفع -->
+        <div class="step-content" id="step2">
+            <h2 class="section-title"><i class="fas fa-credit-card"></i> طريقة الدفع</h2>
+            <p style="color: #8A8F9C; margin-bottom: 20px; font-size: 14px;">اختر طريقة الدفع المناسبة لك</p>
+            
+            <div class="payment-methods">
+                <div class="payment-option selected" data-method="vodafone">
+                    <div class="payment-icon" style="background: #E60000; color: white;">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-name">فودافون كاش</div>
+                        <div class="payment-desc">تحويل فوري عبر رقم الهاتف</div>
+                    </div>
+                    <div class="payment-radio"></div>
+                </div>
+                
+                <div class="payment-option" data-method="instapay">
+                    <div class="payment-icon" style="background: #1E429F; color: white;">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-name">إنستاباي</div>
+                        <div class="payment-desc">تحويل بنكي فوري</div>
+                    </div>
+                    <div class="payment-radio"></div>
+                </div>
+                
+                <div class="payment-option" data-method="bank">
+                    <div class="payment-icon" style="background: #059669; color: white;">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-name">تحويل بنكي</div>
+                        <div class="payment-desc">تحويل لحساب البنك</div>
+                    </div>
+                    <div class="payment-radio"></div>
+                </div>
+                
+                <div class="payment-option" data-method="cod">
+                    <div class="payment-icon" style="background: #7C3AED; color: white;">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-name">الدفع عند الاستلام</div>
+                        <div class="payment-desc">ادفع عند استلام المنتج</div>
+                    </div>
+                    <div class="payment-radio"></div>
+                </div>
+            </div>
+            
+            <div class="payment-notice">
+                <i class="fas fa-info-circle"></i> سيتم إرسال تفاصيل التحويل للبائع  بعد تأكيد الطلب 
+                ..عليك ارسال صوره التحويل
+            </div>
+        </div>
+        
+        <!-- المرحلة 3: الموقع -->
+       <!-- المرحلة 3: الموقع -->
+<div class="step-content" id="step3">
+    <h2 class="section-title"><i class="fas fa-map-marker-alt"></i> عنوان التوصيل</h2>
+    
+    <div class="location-container">
+        <div class="address-section">
+            <div class="address-header">
+                <i class="fas fa-home"></i>
+                <h3>العنوان الحالي</h3>
+            </div>
+            <div class="current-address-display" id="current-address-display">
+                القاهرة، مصر، شارع التحرير، مبنى 12، شقة 5
+            </div>
+            <button class="edit-address-btn" id="use-current-address">
+                <i class="fas fa-check"></i> استخدام هذا العنوان
+            </button>
+        </div>
+        
+        <div class="divider">
+            <span>أو</span>
+        </div>
+        
+        <div class="new-address-section">
+            <div class="address-header">
+                <i class="fas fa-plus-circle"></i>
+                <h3>أدخل عنوان جديد</h3>
+            </div>
+            
+            <div class="address-form">
+                <div class="form-group">
+                    <label for="governorate">المحافظة</label>
+                    <select id="governorate" class="form-select">
+                        <option value="">اختر المحافظة</option>
+                        <option value="cairo">القاهرة</option>
+                        <option value="giza">الجيزة</option>
+                        <option value="alexandria">الإسكندرية</option>
+                        <option value="sharqia">الشرقية</option>
+                        <option value="daqahlia">الدقهلية</option>
+                        <option value="gharbia">الغربية</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">المدينة/الحي</label>
+                    <input type="text" id="city" class="form-input" placeholder="أدخل المدينة أو الحي">
+                </div>
+                
+                <div class="form-group">
+                    <label for="street">الشارع</label>
+                    <input type="text" id="street" class="form-input" placeholder="اسم الشارع والمبنى">
+                </div>
+                
+                <div class="form-group">
+                    <label for="details">تفاصيل إضافية</label>
+                    <textarea id="details" class="form-textarea" placeholder="رقم الشقة، الطابق، أقرب علامة مميزة..." rows="2"></textarea>
+                </div>
+                
+                <button class="save-address-btn" id="save-new-address">
+                    <i class="fas fa-save"></i> حفظ العنوان الجديد
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="shipping-notice">
+        <div class="notice-icon">
+            <i class="fas fa-shipping-fast"></i>
+        </div>
+        <div class="notice-content">
+            <strong>معلومات التوصيل:</strong>
+            <p>التوصيل خلال 3-5 أيام عمل • يمكنك تغيير العنوان حتى تأكيد الطلب</p>
+        </div>
+    </div>
+</div>
+        <!-- المرحلة 4: الفاتورة -->
+        <div class="step-content" id="step4">
+            <h2 class="section-title"><i class="fas fa-file-invoice"></i> الفاتورة النهائية</h2>
+            
+            <div class="invoice-container">
+                <div class="invoice-header">
+                    <div class="invoice-title">فاتورة شراء</div>
+                    <div class="invoice-subtitle">رقم الفاتورة: #BIY-7842</div>
+                    <div class="invoice-subtitle">التاريخ: 15 سبتمبر 2024</div>
+                </div>
+                
+                <div class="invoice-details">
+                    <div class="invoice-row">
+                        <span>المنتجات (2)</span>
+                        <span id="invoice-subtotal">$500</span>
+                    </div>
+                    <div class="invoice-row">
+                        <span>الشحن</span>
+                        <span id="invoice-shipping">$50</span>
+                    </div>
+                    <div class="invoice-row">
+                        <span>الخصم</span>
+                        <span id="invoice-discount">-$50</span>
+                    </div>
+                    <div class="invoice-row total">
+                        <span>المبلغ الإجمالي</span>
+                        <span id="invoice-total">$500</span>
+                    </div>
+                </div>
+                
+                <div class="invoice-notes">
+                    <strong><i class="fas fa-exclamation-circle"></i> ملاحظات مهمة:</strong>
+                    <ul>
+                        <li>الفاتورة سترسل للبائع   فور التأكيد</li>
+                        <li>يمكنك تتبع حالة الطلب من صفحة الإعدادات</li>
+                        <li>سيتم إرسال إشعارات عند كل تحديث للطلب</li>
+                        <li>مدة استرجاع المنتج 48 ساعة من وقت الاستلام</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- المرحلة 5: التوقيع -->
+        <div class="step-content" id="step5">
+            <h2 class="section-title"><i class="fas fa-signature"></i> التوقيع والتأكيد</h2>
+            
+            <div class="signature-container">
+                <div class="signature-title">التوقيع الإلكتروني</div>
+                <p style="color: #8A8F9C; margin-bottom: 20px; font-size: 14px;">وقع في المساحة أدناه لتأكيد موافقتك على الشروط</p>
+                
+                <canvas class="signature-canvas" id="signature-canvas"></canvas>
+                
+                <div class="signature-actions">
+                    <button class="signature-btn" id="clear-signature">
+                        <i class="fas fa-eraser"></i> مسح
+                    </button>
+                    <button class="signature-btn" id="undo-signature">
+                        <i class="fas fa-undo"></i> تراجع
+                    </button>
+                </div>
+                
+                <div class="terms-agreement">
+                    <input type="checkbox" id="terms-agree" class="terms-checkbox">
+                    <label for="terms-agree" class="terms-label">
+                        أوافق على <a href="#">الشروط والأحكام</a> وسياسة الاسترجاع
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- رسالة النجاح -->
+        <div class="success-message" id="success-message">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="success-title">تم تأكيد الطلب بنجاح!</div>
+            
+            <div class="success-desc">
+                تم إرسال فاتورتك للبائع عبر تليجرام<br>
+                يمكنك متابعة حالة الطلب من صفحة الإعدادات
+            </div>
+            
+            <div class="telegram-notice">
+                <i class="fab fa-telegram"></i> تم إرسال إشعار للبائع وسيتم التواصل معك قريباً لتأكيد طريقة الدفع
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button class="step-btn btn-confirm" id="back-to-home" style="max-width: 200px;">
+                    العودة للرئيسية
+                </button>
+            </div>
+        </div>
+        
+        <!-- أزرار التنقل -->
+        <div class="step-buttons" id="step-buttons">
+            <button class="step-btn btn-back hidden" id="prev-step">رجوع</button>
+            <button class="step-btn btn-next" id="next-step">التالي</button>
+            <button class="step-btn btn-confirm hidden" id="confirm-order">تأكيد الطلب</button>
+        </div>
+    </div>
+    
+    <!-- نافذة تأكيد الإرسال -->
+    <div class="confirm-dialog" id="confirm-dialog">
+        <div class="confirm-box">
+            <div class="confirm-title">تأكيد إرسال الطلب</div>
+            <div class="confirm-text">
+                هل أنت متأكد من إرسال الطلب؟<br>
+                سيتم إرسال الفاتورة للبائع  ولا يمكن التراجع بعد التأكيد.
+            </div>
+            <div class="confirm-buttons">
+                <button class="confirm-btn confirm-cancel" id="cancel-confirm">إلغاء</button>
+                <button class="confirm-btn confirm-ok" id="confirm-send">تأكيد الإرسال</button>
+            </div>
+        </div>
+    </div>
+
+        <script src="../js/purchase.js"></script>
+</body>
+</html>
